@@ -89,18 +89,15 @@ def avanzar(nivel):
 if st.session_state.nivel == 1:
     st.markdown("<h1>🗝️ Un mensaje misterioso...</h1>", unsafe_allow_html=True)
     
-    # EL TRUCO DEFINITIVO: Usar el reproductor oficial incrustado (iframe)
-    st.markdown("""
-        <div style="display: flex; justify-content: center; border-radius: 15px; overflow: hidden; box-shadow: 0 0 20px rgba(138, 43, 226, 0.5); margin-bottom: 20px;">
-            <iframe src="https://tenor.com/embed/15383563" width="100%" height="350" frameBorder="0" allowFullScreen></iframe>
-        </div>
-    """, unsafe_allow_html=True)
+    # Enlace multimedia directo ultra estable
+    st.image("https://media1.tenor.com/m/J3PnbDkK0W8AAAAC/coraline-tunnel.gif", use_column_width=True)
     
     st.markdown("<p style='font-size: 1.5rem;'>Aloo, como tas?. Quería ver si querías ir a ver Coraline jijiji, te voy a dejar los días fechas y lugares donde la van a pasar 🧵🪡</p>", unsafe_allow_html=True)
     
     st.write("")
     if st.button("Continuar a la otra dimensión... 🚪"):
         avanzar(2)
+        
 # NIVEL 2: Escoger el Día
 elif st.session_state.nivel == 2:
     st.markdown("<h1>🗓️ Nivel 1: Elige tu destino temporal</h1>", unsafe_allow_html=True)
