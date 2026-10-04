@@ -83,8 +83,19 @@ def avanzar(nivel):
 if st.session_state.nivel == 1:
     st.markdown("<h1>🗝️ Un mensaje misterioso...</h1>", unsafe_allow_html=True)
     
-    # Enlace de Tumblr del túnel de Coraline (Sin bloqueos)
-    st.image("https://64.media.tumblr.com/b5b9c02450849c719e798dfb0d1e57c6/tumblr_n006z78fGj1qg7e2bo1_500.gif", use_column_width=True)
+    # Método infalible: Leer tu propio archivo local en base64
+    import base64
+    try:
+        with open("coraline.gif", "rb") as f:
+            contenido = f.read()
+        data_url = base64.b64encode(contenido).decode("utf-8")
+        st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="data:image/gif;base64,{data_url}" width="100%" style="border-radius: 15px; box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);">
+            </div>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        st.error("Cargando los archivos de la otra dimensión... por favor recarga la página en unos segundos.")
     
     st.markdown("<p style='font-size: 1.5rem;'>Aloo, como tas?. Quería ver si querías ir a ver Coraline jijiji, te voy a dejar los días fechas y lugares donde la van a pasar 🧵🪡</p>", unsafe_allow_html=True)
     
