@@ -89,10 +89,10 @@ def avanzar(nivel):
 if st.session_state.nivel == 1:
     st.markdown("<h1>🗝️ Un mensaje misterioso...</h1>", unsafe_allow_html=True)
     
-    # INYECCIÓN DIRECTA DE HTML PARA EL GIF DEL TÚNEL 
+    # INYECCIÓN DIRECTA DE HTML CON TRUCO PARA EVADIR EL BLOQUEO
     st.markdown("""
         <div class="gif-container">
-            <img src="https://i.pinimg.com/originals/1b/58/a5/1b58a5e381ec383dbecb2d7fc6b567a2.gif" width="100%" alt="Coraline Tunnel">
+            <img src="https://media.tenor.com/J3PnbDkK0W8AAAAC/coraline-tunnel.gif" width="100%" alt="Coraline Tunnel" referrerpolicy="no-referrer">
         </div>
     """, unsafe_allow_html=True)
     
