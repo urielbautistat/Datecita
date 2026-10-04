@@ -89,10 +89,10 @@ def avanzar(nivel):
 if st.session_state.nivel == 1:
     st.markdown("<h1>🗝️ Un mensaje misterioso...</h1>", unsafe_allow_html=True)
     
-    # INYECCIÓN DIRECTA DE HTML CON TRUCO PARA EVADIR EL BLOQUEO
+    # EL TRUCO DEFINITIVO: Usar el reproductor oficial incrustado (iframe)
     st.markdown("""
-        <div class="gif-container">
-            <img src="https://media.tenor.com/J3PnbDkK0W8AAAAC/coraline-tunnel.gif" width="100%" alt="Coraline Tunnel" referrerpolicy="no-referrer">
+        <div style="display: flex; justify-content: center; border-radius: 15px; overflow: hidden; box-shadow: 0 0 20px rgba(138, 43, 226, 0.5); margin-bottom: 20px;">
+            <iframe src="https://tenor.com/embed/15383563" width="100%" height="350" frameBorder="0" allowFullScreen></iframe>
         </div>
     """, unsafe_allow_html=True)
     
