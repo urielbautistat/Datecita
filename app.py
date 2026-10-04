@@ -82,7 +82,7 @@ def avanzar(nivel):
 # NIVEL 1: El Saludo
 if st.session_state.nivel == 1:
     st.markdown("<h1>🗝️ Un mensaje misterioso...</h1>", unsafe_allow_html=True)
-    st.image("https://media.tenor.com/t33KjD6D7JAAAAAC/coraline-cat.gif", use_column_width=True) # Gif de Coraline
+    st.image("coraline.gif", use_column_width=True) # Gif de Coraline
     st.markdown("<p style='font-size: 1.5rem;'>Aloo, como tas?. Quería ver si querías ir a ver Coraline jijiji, te voy a dejar los días fechas y lugares donde la van a pasar 🧵🪡</p>", unsafe_allow_html=True)
     
     st.write("")
