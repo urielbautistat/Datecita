@@ -89,10 +89,10 @@ def avanzar(nivel):
 if st.session_state.nivel == 1:
     st.markdown("<h1>🗝️ Un mensaje misterioso...</h1>", unsafe_allow_html=True)
     
-    # INYECCIÓN DIRECTA DE HTML PARA EL GIF DEL TÚNEL (Evita el error de Streamlit)
+    # INYECCIÓN DIRECTA DE HTML PARA EL GIF DEL TÚNEL 
     st.markdown("""
         <div class="gif-container">
-            <img src="https://media.tenor.com/J3PnbDkK0W8AAAAC/coraline-tunnel.gif" width="100%" alt="Coraline Tunnel">
+            <img src="https://i.pinimg.com/originals/1b/58/a5/1b58a5e381ec383dbecb2d7fc6b567a2.gif" width="100%" alt="Coraline Tunnel">
         </div>
     """, unsafe_allow_html=True)
     
@@ -101,7 +101,6 @@ if st.session_state.nivel == 1:
     st.write("")
     if st.button("Continuar a la otra dimensión... 🚪"):
         avanzar(2)
-
 # NIVEL 2: Escoger el Día
 elif st.session_state.nivel == 2:
     st.markdown("<h1>🗓️ Nivel 1: Elige tu destino temporal</h1>", unsafe_allow_html=True)
