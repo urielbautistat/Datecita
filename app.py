@@ -47,6 +47,12 @@ st.markdown("""
     }
     .ticket h2 { color: #f2cc8f; font-size: 2.5rem; text-shadow: 2px 2px 4px #000; }
     .ticket h3 { color: #fff; margin: 5px 0; }
+    .gif-container {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        margin-bottom: 20px;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -82,7 +88,14 @@ def avanzar(nivel):
 # NIVEL 1: El Saludo
 if st.session_state.nivel == 1:
     st.markdown("<h1>🗝️ Un mensaje misterioso...</h1>", unsafe_allow_html=True)
-    st.markdown('<img src="https://media.tenor.com/t33KjD6D7JAAAAAC/coraline-cat.gif" width="100%" style="border-radius: 15px;">', unsafe_allow_html=True)# Gif de Coraline
+    
+    # INYECCIÓN DIRECTA DE HTML PARA EL GIF DEL TÚNEL (Evita el error de Streamlit)
+    st.markdown("""
+        <div class="gif-container">
+            <img src="https://media.tenor.com/J3PnbDkK0W8AAAAC/coraline-tunnel.gif" width="100%" alt="Coraline Tunnel">
+        </div>
+    """, unsafe_allow_html=True)
+    
     st.markdown("<p style='font-size: 1.5rem;'>Aloo, como tas?. Quería ver si querías ir a ver Coraline jijiji, te voy a dejar los días fechas y lugares donde la van a pasar 🧵🪡</p>", unsafe_allow_html=True)
     
     st.write("")
@@ -134,7 +147,7 @@ elif st.session_state.nivel == 4:
     with col1:
         if st.button("⬅️ Atrás"): avanzar(3)
     with col2:
-        if st.button("Generar Llave (Boleto) 🗝️️"):
+        if st.button("Generar Llave (Boleto) 🗝"):
             st.session_state.hora = hora_elegida
             avanzar(5)
 
