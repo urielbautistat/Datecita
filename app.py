@@ -1,9 +1,10 @@
+import urllib.request
 import streamlit as st
 
 # Configuración de la página
 st.set_page_config(page_title="Una invitación especial...", page_icon="🗝️", layout="centered")
 
-# Estilo visual estilo Coraline (Oscuro, azules, morados, amarillo neón y fuentes temáticas)
+# Estilo visual estilo Coraline
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
@@ -47,16 +48,10 @@ st.markdown("""
     }
     .ticket h2 { color: #f2cc8f; font-size: 2.5rem; text-shadow: 2px 2px 4px #000; }
     .ticket h3 { color: #fff; margin: 5px 0; }
-    .gif-container {
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-        margin-bottom: 20px;
-    }
     </style>
 """, unsafe_allow_html=True)
 
-# Variables de estado para guardar las decisiones (como un progreso de videojuego)
+# Variables de estado
 if 'nivel' not in st.session_state:
     st.session_state.nivel = 1
 if 'dia' not in st.session_state:
@@ -81,7 +76,6 @@ dias_disponibles = [
     "Domingo 11 de Octubre", "Lunes 12 de Octubre"
 ]
 
-# Funciones para avanzar de nivel
 def avanzar(nivel):
     st.session_state.nivel = nivel
 
@@ -89,15 +83,24 @@ def avanzar(nivel):
 if st.session_state.nivel == 1:
     st.markdown("<h1>🗝️ Un mensaje misterioso...</h1>", unsafe_allow_html=True)
     
-    # Enlace multimedia directo ultra estable
-    st.image("https://media1.tenor.com/m/J3PnbDkK0W8AAAAC/coraline-tunnel.gif", use_column_width=True)
+    # Truco de Backend: La app descarga el GIF internamente para evadir bloqueos
+    try:
+        req = urllib.request.Request(
+            "https://media.tenor.com/J3PnbDkK0W8AAAAC/coraline-tunnel.gif",
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+        )
+        with urllib.request.urlopen(req) as response:
+            st.image(response.read(), use_column_width=True)
+    except Exception:
+        # Enlace alternativo de emergencia
+        st.image("https://media.giphy.com/media/13rQ7rrTrvZXlm/giphy.gif", use_column_width=True)
     
     st.markdown("<p style='font-size: 1.5rem;'>Aloo, como tas?. Quería ver si querías ir a ver Coraline jijiji, te voy a dejar los días fechas y lugares donde la van a pasar 🧵🪡</p>", unsafe_allow_html=True)
     
     st.write("")
     if st.button("Continuar a la otra dimensión... 🚪"):
         avanzar(2)
-        
+
 # NIVEL 2: Escoger el Día
 elif st.session_state.nivel == 2:
     st.markdown("<h1>🗓️ Nivel 1: Elige tu destino temporal</h1>", unsafe_allow_html=True)
