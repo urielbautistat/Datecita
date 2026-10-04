@@ -83,8 +83,8 @@ def avanzar(nivel):
 if st.session_state.nivel == 1:
     st.markdown("<h1>🗝️ Un mensaje misterioso...</h1>", unsafe_allow_html=True)
     
-    # Enlace de Giphy comprobado que Streamlit sí permite cargar
-    st.image("https://media.giphy.com/media/3o7TKrEzvLbgzGmMQo/giphy.gif", use_column_width=True)
+    # Enlace de Tumblr del túnel de Coraline (Sin bloqueos)
+    st.image("https://64.media.tumblr.com/b5b9c02450849c719e798dfb0d1e57c6/tumblr_n006z78fGj1qg7e2bo1_500.gif", use_column_width=True)
     
     st.markdown("<p style='font-size: 1.5rem;'>Aloo, como tas?. Quería ver si querías ir a ver Coraline jijiji, te voy a dejar los días fechas y lugares donde la van a pasar 🧵🪡</p>", unsafe_allow_html=True)
     
